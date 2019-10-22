@@ -80,6 +80,7 @@ export class AuthService {
       observe: 'response'
     }).pipe(
       tap((res: HttpResponse<any>) => {
+        console.log(res.headers.get('x-access-token'));
         this.setAccessToken(res.headers.get('x-access-token'));
       })
     );
